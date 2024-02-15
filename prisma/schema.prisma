@@ -29,6 +29,8 @@ model Profile {
 model Post {
     id         String    @id @default(auto()) @map("_id") @db.ObjectId
     title      String
+    price      Int?
+    likeNum    Int       @default(0)
     authorId   String    @db.ObjectId
     author     User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
     published  Boolean   @default(false)
